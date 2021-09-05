@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <section class="section">
+        <h1 class="title"> Thumbnails</h1>
+        <hr>
+        {% for thumb_image in thumb_images %}
+
+        <figure class="image is-96x96"><img src="{{ thumb_image.image}}"></figure>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}

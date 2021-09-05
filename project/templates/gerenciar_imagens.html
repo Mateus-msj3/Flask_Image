@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}>
+<div class="column is-4 is-offset-4">
+    <h1 class="title"> Gerenciamento de Imagens</h1>
+    <table class="table" margin='auto'>
+        <tr>
+            <th><abbr>ID</abbr></th>
+            <th><abbr>Nome</abbr></th>
+            <th>
+                <abbr">Imagem</abbr>
+            </th>
+            <th><abbr>Resumo</abbr></th>
+            <th>
+                <abbr">Excluir</abbr>
+            </th>
+        </tr>
+        {% for all_image in all_images %}
+        <tr>
+            <td>{{ all_image.id }}</td>
+            <td>{{ all_image.name }}</td>
+            <!--<td><figure class="image is-96x96"><img src="{{ all_image.image }}"></figure></td> -->
+            <td style="
+                 max-width: 100px;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+                 white-space: nowrap;">
+                {{ all_image.image }}</td>
+            <td>{{ all_image.resume }}</td>
+            <td>
+                <form action="/excluir-imagens/{{ all_image.id }}"><button
+                        class="button is-block is-danger">Excluir</button>
+            </td>
+            </form>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+{% endblock %}

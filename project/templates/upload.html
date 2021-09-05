@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Upload de Imagens</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-info">
+                {{ messages[0] }}.
+            </div>
+        {% endif %}
+        {% endwith %}
+        <form action="/upload-image" method="POST", enctype="multipart/form-data">
+            <div class="form-group">
+
+                <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="name" placeholder="Name" autofocus="">
+                </div>
+                </div>
+
+                <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="resume" placeholder="Resume" autofocus="">
+                </div>
+                </div>
+
+                <hr>
+
+                <div class="custom-file">
+                    <label for="">Selecione a Imagem</label>
+                    <hr>
+                    <input class="custom-file-input" type="file" name="files" id="files">
+                    <hr>
+                </div>
+            </div>
+
+            <button type="submit" class="button is-block is-info is-large is-fullwidth">Upload</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
